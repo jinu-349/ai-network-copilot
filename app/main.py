@@ -1,14 +1,13 @@
 from fastapi import FastAPI
-from app.models.incident import Incident
+from app.api.incident_router import incident_router
 
 app=FastAPI()
+
+app.include_router(incident_router)
 
 @app.get("/")
 def home():
     return("AI Network Copilot is running")
 
-@app.post("/incident")
-def create_incident(incident:Incident):
-    return{ "message": "Incident created successfully",
-           "incident": incident}
+
 
