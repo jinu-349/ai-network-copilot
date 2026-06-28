@@ -2,6 +2,7 @@ from pydantic import BaseModel
 
 class Incident(BaseModel):
     incident_number: str
+    store_id: str
     caller : str
     short_description: str
     description: str
