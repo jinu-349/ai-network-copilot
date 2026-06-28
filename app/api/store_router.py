@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from app.models.store import Store
-from app.services.store_services import create_store
+from app.schemas.store import Store
+from app.services.store_service import create_store
 from app.database.database import get_db
 
 store_router = APIRouter()

@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from app.models.incident import Incident
-from app.services.incident_services import create_incident
+from app.schemas.incident import Incident
+from app.services.incident_service import create_incident
 from app.database.database import get_db
 
 incident_router = APIRouter()

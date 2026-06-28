@@ -1,6 +1,8 @@
 from sqlalchemy import String, Text, DateTime
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.sql import func
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship
 
 from app.database.database import Base
 
@@ -8,14 +10,19 @@ from app.database.database import Base
 class IncidentDB(Base):
     __tablename__ = "incidents"
 
+    store = relationship(
+    "StoreDB",
+    back_populates="incidents"
+)
+
     incident_number: Mapped[str] = mapped_column(
         String(20),
         primary_key=True
     )
 
     store_id: Mapped[str] = mapped_column(
-        String(20)
-    )
+    ForeignKey("stores.store_id")
+)
 
     caller: Mapped[str] = mapped_column(
         String(100)

@@ -1,10 +1,15 @@
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import relationship
 
 from app.database.database import Base
 
 class StoreDB(Base):
     __tablename__ = "stores"
+    incidents = relationship(
+    "IncidentDB",
+    back_populates="store"
+)
 
     store_id: Mapped[str] = mapped_column(
         String(20),

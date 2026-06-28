@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from app.models.incident import Incident
-from app.database.models import IncidentDB
+from app.schemas.incident import Incident
+from app.database.models.incident import IncidentDB
 
 
 def create_incident(incident: Incident, db: Session):
