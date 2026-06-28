@@ -6,7 +6,7 @@ from sqlalchemy.orm import relationship
 
 from app.database.database import Base
 
-
+#git test
 class IncidentDB(Base):
     __tablename__ = "incidents"
 
