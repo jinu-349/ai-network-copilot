@@ -1,9 +1,13 @@
 from fastapi import FastAPI
 from app.api.incident_router import incident_router
 from app.api.store_router import store_router
+from app.api.vendor_router import vendor_router
 from app.config.settings import settings
 from app.database.database import create_tables
-from app.database import models
+from app.database.models import stotre,incident,vendor
+from app.api.vendor_router import vendor_router
+
+
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -12,6 +16,7 @@ app = FastAPI(
 create_tables()
 app.include_router(incident_router)
 app.include_router(store_router)
+app.include_router(vendor_router)
 
 @app.get("/")
 def home():
